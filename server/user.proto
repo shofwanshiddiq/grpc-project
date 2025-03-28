@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package user;
+
+// Update this to match your Go module
+option go_package = "./server";
+
+message UserRequest {
+    int32 userID = 1;
+}
+
+message UserResponse {
+    int32 userID = 1;
+    string name = 2;
+    string email = 3;
+}
+
+service UserService {
+    rpc GetUser(UserRequest) returns (UserResponse);
+}
